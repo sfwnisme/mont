@@ -16,7 +16,8 @@ body {
 :root {
   --black: #231f20;
   --black-light: #636363;
-  --black-lighter: #b1b1b1;
+  --black-lighter: #939393;
+  --black-lightest: #b1b1b1;
   --white: #fff;
   --orange: #f26522;
   --orange-light: #ff854b;
@@ -32,14 +33,16 @@ body {
   --hero-lrg: 70px;
   --hero-med: 50px;
   --hero-sml: 40px;
-  --title: 30px;
+  --title: 40px;
   --font-lrg: 24px;
   --font-med: 18px;
   --font-sml: 16px;
   --font-tin: 14px;
-  --p60: 60px;
-  --p20: 20px;
   --p10: 10px;
+  --p20: 20px;
+  --p30: 30px;
+  --p40: 40px;
+  --p60: 60px;
 }
 
 .cont {
@@ -78,18 +81,68 @@ body {
 }
 /* ==========================[End Media]========================== */
 
+/* ==========================[Start Componant]========================== */
+
+.title-box {
+  max-width: 500px;
+  margin-inline: auto;
+  text-align: center;
+  padding-bottom: var(--p40);
+}
+.title-box h2 {
+  width: fit-content;
+  font-size: var(--title);
+  font-weight: 700;
+  padding-bottom: var(--p20);
+  position: relative;
+  margin-inline: auto;
+}
+.title-box h2::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  background-color: var(--orange);
+  height: 10px;
+  width: 10px;
+  transform: translatey(-50%);
+  -webkit-transform: translatey(-50%);
+  -moz-transform: translatey(-50%);
+  -ms-transform: translatey(-50%);
+  -o-transform: translatey(-50%);
+}
+.title-box h2::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  background-color: var(--orange);
+  height: 10px;
+  width: 10px;
+  transform: translatey(-50%);
+  -webkit-transform: translatey(-50%);
+  -moz-transform: translatey(-50%);
+  -ms-transform: translatey(-50%);
+  -o-transform: translatey(-50%);
+}
+.title-box p {
+  color: var(--black-light);
+}
+
+/* ==========================[End Componant]========================== */
+
 /* ==========================[Start Header]========================== */
 
 header {
-  padding-block: var(--p20);
-  /* width: 100%; */
-  height: 79px;
+  padding-block: var(--p30);
+  height: 100px;
 }
 header .cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* width: inherit; */
+  padding-block: var(--p10);
 }
 header .cont .order {
   transition: var(--tr300);
@@ -119,7 +172,8 @@ header .cont .order a {
 }
 header .cont .order:hover a {
   background-color: var(--orange);
-  box-shadow: 3px 3px 0 var(--orange-lighter), 6px 6px 0 var(--orange-lighter1), 9px 9px 0 var(--orange-lighter2), 12px 12px 0 var(--orange-lighter3);
+  box-shadow: 3px 3px 0 var(--orange-lighter), 6px 6px 0 var(--orange-lighter1),
+    9px 9px 0 var(--orange-lighter2), 12px 12px 0 var(--orange-lighter3);
   transform: translate(-2px, -2px);
   -webkit-transform: translate(-2px, -2px);
   -moz-transform: translate(-2px, -2px);
@@ -143,19 +197,20 @@ header .cont ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 5px;
 }
 header .cont ul li {
 }
 header .cont ul li a {
   color: var(--black);
+  padding: var(--p20);
 }
 @media (max-width: 767px) {
   header .cont ul li a {
+    padding: var(--p10);
     font-size: var(--font-tin);
   }
 }
-
 
 /* ==========================[End Header]========================== */
 
@@ -171,7 +226,7 @@ header .cont ul li a {
   align-items: center;
   gap: 100px;
 }
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .land .cont {
     flex-direction: column;
     gap: 20px;
@@ -186,7 +241,7 @@ header .cont ul li a {
 .land .cont .hero-box {
   max-width: 500px;
 }
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .land .cont .hero-box {
     text-align: center;
   }
@@ -216,7 +271,7 @@ header .cont ul li a {
   width: 10px;
   background-color: var(--orange);
 }
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .land .cont .hero-box h1::before {
     right: 0;
     left: 50%;
@@ -228,7 +283,7 @@ header .cont ul li a {
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
-}
+  }
 }
 .land .cont .hero-box p {
   color: var(--black-lighter);
@@ -242,3 +297,51 @@ header .cont ul li a {
 }
 
 /* ==========================[End Land]========================== */
+
+/* ==========================[Start About]========================== */
+
+.about {
+  padding-block: var(--p60);
+}
+.about .cont {
+}
+
+.about .cont .vid {
+  max-width: 700px;
+  margin-inline: auto;
+}
+.about .cont .vid video {
+  max-width: 100%;
+}
+
+/* ==========================[End About]========================== */
+
+/* ==========================[Start Details]========================== */
+
+.details {
+  padding-block: var(--p60);
+}
+.details .cont {
+}
+.details .cont .box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.details .cont .box .info {
+  padding: 15px;
+}
+.details .cont .box .info img {
+  max-width: 100%;
+}
+.details .cont .box .info .info-text {
+}
+.details .cont .box .info .info-text h4 {
+  color: var(--orange);
+  margin-bottom: var(--p10);
+}
+.details .cont .box .info .info-text p {
+  color: var(--black-lighter);
+}
+
+/* ==========================[End Details]========================== */
