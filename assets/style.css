@@ -137,14 +137,25 @@ header {
   background-color: var(--white);
   padding-block: var(--p30);
   height: 100px;
+  width: 100%;
   position: fixed;
-  box-shadow
+  box-shadow: 0px 10px 50px 23px rgba(0, 0, 0, 0.016);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media(max-width: 767px) {
+  header {
+    height: 90px;
+  }
 }
 header .cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* width: inherit; */
+  width: inherit;
+  height: inherit;
   padding-block: var(--p10);
 }
 header .cont .order {
@@ -153,10 +164,27 @@ header .cont .order {
   -moz-transition: var(--tr300);
   -ms-transition: var(--tr300);
   -o-transition: var(--tr300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .cont .order li {
+  height: 100%;
+  position: relative;
+}
+header .cont .order li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  width: 100px;
+  height: 10px;
 }
 header .cont .order a {
   background-color: var(--orange-light);
   color: var(--white);
+  height: 100%;
   font-weight: 600;
   padding: 10px 20px;
   align-self: flex-end;
@@ -221,7 +249,11 @@ header .cont ul li a {
 
 .land {
   padding-block: var(--p60);
-  height: calc(100vh - 79px);
+  /* + 100px => is the height of the <header>*/
+  height: calc(100vh + 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .land .cont {
   display: flex;
